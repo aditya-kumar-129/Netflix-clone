@@ -1,8 +1,7 @@
+import {JumbotronContainer} from './containers/jumbotron';
 function App() {
   return (
-    <div>
-      <p>hello</p>
-    </div>
+    <JumbotronContainer/>
   );
 }
 
