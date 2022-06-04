@@ -1,7 +1,12 @@
-import {JumbotronContainer} from './containers/jumbotron';
+import { Fragment } from "react";
+import { JumbotronContainer } from "./containers/jumbotron";
+import { FooterContainer } from "./containers/footer";
 function App() {
   return (
-    <JumbotronContainer/>
+    <Fragment>
+      <JumbotronContainer />
+      <FooterContainer />
+    </Fragment>
   );
 }
 
