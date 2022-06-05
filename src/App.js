@@ -2,9 +2,10 @@ import { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 import { IsUserRedirect, ProtectedRoute } from "./helpers/routes";
 import { Home, Browse, SignIn, SignUp } from "./pages";
+import { useAuthListener } from "./hooks";
 function App() {
-  // const user = {name : "Aditya kumar"};
-  const user = null;
+  const {user} = useAuthListener();
+  console.log(user);
   return (
     <Fragment>
       <Routes>
