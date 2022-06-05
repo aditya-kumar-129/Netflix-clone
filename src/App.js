@@ -1,17 +1,18 @@
 import { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import Browse from "./pages/Browse";
+import { IsUserRedirect, ProtectedRoute } from "./helpers/routes";
+import { Home, Browse, SignIn, SignUp } from "./pages";
 function App() {
+  // const user = {name : "Aditya kumar"};
+  const user = null;
   return (
     <Fragment>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signIn" element={<SignIn />} />
-        <Route path="/signUp" element={<SignUp />} />
-        <Route path="/browse" element={<Browse />} />
+        {/* https://stackoverflow.com/questions/69864165/error-privateroute-is-not-a-route-component-all-component-children-of-rou */}
+        <Route path="/" element={ <IsUserRedirect user={user}> <Home /> </IsUserRedirect> } />
+        <Route path="/signIn" element={ <IsUserRedirect user={user}> <SignIn /> </IsUserRedirect> } />
+        <Route path="/signUp" element={ <IsUserRedirect user={user}> <SignUp /> </IsUserRedirect> } />
+        <Route path="/browse" element={ <ProtectedRoute user={user}> <Browse /> </ProtectedRoute> } />
         <Route path="*" element={<p>404 page</p>} />
       </Routes>
     </Fragment>
