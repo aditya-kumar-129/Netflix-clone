@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     ${"" /* https://www.robinwieruch.de/react-styled-components/ */}
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #000000;
+    background-color: #000000 !important;
     color: #333333;
     font-size: 16px;
 }`;
