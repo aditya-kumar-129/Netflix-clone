@@ -1,25 +1,20 @@
 import styled from "styled-components/macro";
 import { Link as ReachRouterLink } from "react-router-dom";
 
-// THIS ONE IS LITTILE BIT TRICKY
-
 export const Background = styled.div`
   display: flex;
   flex-direction: column;
   background: linear-gradient(
-      to bottom,
+      ${ "" /* https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient */ }
+        to bottom,  
       rgba(0, 0, 0, 0.35),
       rgba(0, 0, 0, 0.1),
       rgba(0, 0, 0, 0.35)
     ),
-    url(${({ src }) =>
-        src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg"})
+    url(${({ src }) => src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg"})
       top left / cover no-repeat;
-
-  @media (max-width: 1100px) {
-    ${({ dontShowOnSmallViewPort }) =>
-      dontShowOnSmallViewPort && `background: none;`}
-  }
+  ${'' /* We have passed a prop and when it is present then apply the logic of below line */}
+  @media (max-width: 1100px) { ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none;`} }
 `;
 
 export const Link = styled.p`
@@ -28,12 +23,8 @@ export const Link = styled.p`
   margin-right: 30px;
   font-weight: ${({ active }) => (active === "true" ? "700" : "normal")};
   cursor: pointer;
-  &:hover {
-    font-weight: bold;
-  }
-  &:last-of-type {
-    margin-right: 0;
-  }
+  &:hover { font-weight: bold; }
+  &:last-of-type { margin-right: 0; }
 `;
 
 export const SearchInput = styled.input`
@@ -48,9 +39,7 @@ export const SearchInput = styled.input`
   padding: ${({ active }) => (active === true ? "0 10px" : "0")};
   opacity: ${({ active }) => (active === true ? "1" : "0")};
   width: ${({ active }) => (active === true ? "200px" : "0px")};
-  &:focus {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
+  &:focus { background-color: rgba(0, 0, 0, 0.8); }
 `;
 
 export const Picture = styled.button`
@@ -75,24 +64,14 @@ export const Dropdown = styled.div`
   width: 100px;
   top: 32px;
   right: 10px;
-  ${Group}:last-of-type ${Link} {
-    cursor: pointer;
-  }
+  ${Group}:last-of-type ${Link} { cursor: pointer; }
   ${Group} {
     margin-bottom: 10px;
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-    ${Link} {
-      cursor: pointer;
-    }
-    ${Picture} {
-      cursor: default;
-    }
+    &:last-of-type { margin-bottom: 0; }
+    ${Link} { cursor: pointer; }
+    ${Picture} { cursor: default; }
   }
-  button {
-    margin-right: 10px;
-  }
+  button { margin-right: 10px; }
   p {
     font-size: 12px;
     margin-bottom: 0;
@@ -105,9 +84,7 @@ export const Profile = styled.div`
   align-items: center;
   margin-left: 20px;
   position: relative;
-  button {
-    cursor: pointer;
-  }
+  button { cursor: pointer; }
   &:hover > ${Dropdown} {
     display: flex;
     flex-direction: column;
@@ -137,12 +114,8 @@ export const Container = styled.div`
   height: 100px;
   justify-content: space-between;
   align-items: center;
-  a {
-    display: flex;
-  }
-  @media (max-width: 1000px) {
-    margin: 0 30px;
-  }
+  a { display: flex; }
+  @media (max-width: 1000px) { margin: 0 30px; }
 `;
 
 export const Feature = styled(Container)`
@@ -150,9 +123,7 @@ export const Feature = styled(Container)`
   flex-direction: column;
   align-items: normal;
   width: 50%;
-  @media (max-width: 1100px) {
-    display: none;
-  }
+  @media (max-width: 1100px) { display: none; }
 `;
 
 export const FeatureCallOut = styled.h2`
@@ -207,9 +178,7 @@ export const Search = styled.div`
     color: white;
     cursor: pointer;
   }
-  @media (max-width: 700px) {
-    display: none;
-  }
+  @media (max-width: 700px) { display: none; }
 `;
 
 export const ButtonLink = styled(ReachRouterLink)`
@@ -224,7 +193,5 @@ export const ButtonLink = styled(ReachRouterLink)`
   padding: 8px 17px;
   cursor: pointer;
   text-decoration: none;
-  &:hover {
-    background: #f40612;
-  }
+  &:hover { background: #f40612; }
 `;
